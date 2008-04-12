@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+
+<!-- ======================================================================= -->
+<!-- Build file for OpenSMPP                                                 -->
+<!-- ======================================================================= -->
+
+<project name="OpenSMPP" default="main" basedir=".">
+   
+   <property file="${basedir}/build.properties"/>
+   <property name="name" value="OpenSMPP"/>
+   <property name="version" value="2.0"/>
+
+   <property name="bin.dir"							value="${basedir}/bin"/>
+   <property name="build.dir"						value="${basedir}/build"/>
+   <property name="build.classes.dir"				value="${build.dir}/classes"/>
+   <property name="dist.dir"						value="${basedir}/dist"/>
+   <property name="etc.dir"							value="${basedir}/etc"/>
+   <property name="lib.dir"							value="${basedir}/lib"/>
+   <property name="src.dir"							value="${basedir}/src"/>
+
+   <path id="compile.classpath">
+      <fileset dir="${lib.dir}">
+         <include name="*.jar"/>
+      </fileset>
+   </path>
+
+   <!-- =================================================================== -->
+   <!-- Main target                                                         -->
+   <!-- =================================================================== -->
+   <target name="main" depends="compile,jar,zip" />
+
+   <!-- =================================================================== -->
+   <!-- Cleans up the current build                                         -->
+   <!-- =================================================================== -->
+   <target name="clean">
+      <delete dir="${build.dir}"/>
+      <delete dir="${dist.dir}"/>
+   </target>
+
+   <!-- =================================================================== -->
+   <!-- Compiles the source code                                            -->
+   <!-- =================================================================== -->
+   <target name="compile">
+      <mkdir dir="${build.dir}"/>
+      <mkdir dir="${build.classes.dir}" />
+      <javac
+         destdir="${build.classes.dir}"
+         debug="on"
+         deprecation="off"
+         optimize="on"
+         classpathref="compile.classpath"
+      	 encoding="UTF-8"
+      >
+         <src path="${src.dir}"/>
+      </javac>
+   </target>
+
+   <!-- =================================================================== -->
+   <!-- Creates the jar archives                                            -->
+   <!-- =================================================================== -->
+   <target name="jar" depends="compile">
+      <mkdir dir="${dist.dir}"/>
+      <mkdir dir="${build.dir}/META-INF/services"/>
+      <copy todir="${build.dir}/META-INF/services">
+         <fileset dir="${src.dir}/charset" includes="**"/>
+      </copy>
+
+      <jar jarfile="${dist.dir}/smpp.jar" >
+         <fileset dir="${build.classes.dir}" >
+            <include name="org/smpp/**" />
+            <exclude name="org/smpp/smscsim/**" />
+            <exclude name="org/smpp/test/**" />
+         </fileset>
+         <fileset
+            dir="${build.dir}"
+            includes="META-INF/**"
+         />
+      </jar>
+
+      <jar jarfile="${dist.dir}/smpptest.jar">
+         <fileset dir="${build.classes.dir}" >
+            <include name="org/smpp/test/**" />
+         </fileset>
+      </jar>
+
+      <jar jarfile="${dist.dir}/smscsim.jar">
+         <fileset dir="${build.classes.dir}" >
+            <include name="org/smpp/smscsim/**" />
+         </fileset>
+      </jar>
+   </target>
+
+   <!-- =================================================================== -->
+   <!-- Creates the zip archive                                             -->
+   <!-- =================================================================== -->
+   <target name="zip" depends="jar,javadoc">
+      <zip destfile="${dist.dir}/smppsender.zip" >
+         <fileset dir="${dist.dir}" >
+            <include name="smpp.jar" />
+         </fileset>
+         <fileset
+            dir="${etc.dir}"
+            includes="smppsender.cfg"
+         />
+         <fileset
+            dir="${bin.dir}"
+            includes="**"
+         />
+      </zip>
+      <zip destfile="${dist.dir}/doc.zip" >
+         <fileset dir="${build.dir}/doc" >
+            <include name="**/*" />
+         </fileset>
+      </zip>
+   </target>
+
+   <!-- =================================================================== -->
+   <!-- JavaDoc                                                             -->
+   <!-- =================================================================== -->
+   <target name="javadoc">
+      <javadoc 
+           destdir="${build.dir}/doc"
+           author="true"
+           version="true"
+           use="true"
+		   classpathref="compile.classpath"
+     	   encoding="UTF-8"
+           windowtitle="OpenSMPP">
+         <fileset dir="${src.dir}" defaultexcludes="yes">
+	     	<include name="**/*" />
+	     	<exclude name="charset/*" />
+	     </fileset>
+
+         <doctitle><![CDATA[<h1>OpenSMPP</h1>]]></doctitle>
+         <tag name="todo" scope="all" description="To do:" />
+         <!--group title="Adapter Packages" packages="com.limetransit.sms.adapter"/>
+         <group title="Message Packages" packages="com.limetransit.sms.message*"/-->
+         <link offline="true" href="http://java.sun.com/products/jdk/1.5/docs/api/" packagelistLoc="C:\tmp"/>
+      </javadoc>
+   </target>
+
+   <!-- =================================================================== -->
+   <!-- Starts SMPP test client                                             -->
+   <!-- =================================================================== -->
+   <target name="test" depends="compile">
+		<java classname="org.smpp.test.SMPPTest"
+				classpath="${build.classes.dir}" />
+   </target>
+
+   <!-- =================================================================== -->
+   <!-- Starts SMSCsimulator                                                -->
+   <!-- =================================================================== -->
+   <target name="simulator" depends="compile">
+		<java classname="org.smpp.smscsim.Simulator"
+				classpath="${build.classes.dir}" />
+   </target>
+</project>
