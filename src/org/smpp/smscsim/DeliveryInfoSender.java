@@ -26,7 +26,7 @@ import org.smpp.util.Queue;
  * Class <code>DeliveryInfoSender</code> ...
  *
  * @author Logica Mobile Networks SMPP Open Source Team
- * @version $Revision: $
+ * @version $Revision$
  * @see SimulatorPDUProcessor
  */
 public class DeliveryInfoSender extends ProcessingThread {
@@ -157,5 +157,5 @@ public class DeliveryInfoSender extends ProcessingThread {
 	}
 }
 /*
- * $Log: not supported by cvs2svn $
+ * $Log$
  */
