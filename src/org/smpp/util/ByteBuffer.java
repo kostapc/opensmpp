@@ -96,14 +96,10 @@ public class ByteBuffer extends SmppObject {
 
 	public void appendCString(String string) {
 		try {
-			appendString0(string, true, Data.ENC_GSM7BIT);
+			appendString0(string, true, Data.ENC_ASCII);
 		} catch (UnsupportedEncodingException e) {
-			try {
-				appendString0(string, true, Data.ENC_ASCII);
-			} catch (UnsupportedEncodingException e2) {
-				// this can't happen as we use ASCII encoding
-				// whatever is in the buffer it gets interpreted as ascii
-			}
+                        // this can't happen as we use ASCII encoding
+                        // whatever is in the buffer it gets interpreted as ascii
 		}
 	}
 
@@ -113,14 +109,10 @@ public class ByteBuffer extends SmppObject {
 
 	public void appendString(String string) {
 		try {
-			appendString(string, Data.ENC_GSM7BIT);
+			appendString(string, Data.ENC_ASCII);
 		} catch (UnsupportedEncodingException e) {
-			try {
-				appendString(string, Data.ENC_ASCII);
-			} catch (UnsupportedEncodingException e2) {
-				// this can't happen as we use ASCII encoding
-				// whatever is in the buffer it gets interpreted as ascii
-			}
+                        // this can't happen as we use ASCII encoding
+                        // whatever is in the buffer it gets interpreted as ascii
 		}
 	}
 
@@ -130,14 +122,10 @@ public class ByteBuffer extends SmppObject {
 
 	public void appendString(String string, int count) {
 		try {
-			appendString(string, count, Data.ENC_GSM7BIT);
+			appendString(string, count, Data.ENC_ASCII);
 		} catch (UnsupportedEncodingException e) {
-			try {
-				appendString(string, count, Data.ENC_ASCII);
-			} catch (UnsupportedEncodingException e2) {
-				// this can't happen as we use ASCII encoding
-				// whatever is in the buffer it gets interpreted as ascii
-			}
+                        // this can't happen as we use ASCII encoding
+                        // whatever is in the buffer it gets interpreted as ascii
 		}
 	}
 

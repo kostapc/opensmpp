@@ -77,14 +77,9 @@ public class Address extends ByteData {
 		addressBuf.appendByte(getTon());
 		addressBuf.appendByte(getNpi());
 		try {
-			addressBuf.appendCString(getAddress(), Data.ENC_GSM7BIT);
+			addressBuf.appendCString(getAddress(), Data.ENC_ASCII);
 		} catch(UnsupportedEncodingException e) {
-			// fall back to ascii
-			try {
-				addressBuf.appendCString(getAddress(), Data.ENC_ASCII);
-			} catch(UnsupportedEncodingException ignore) {
-				// can't happen, ascii is always supported
-			}
+			// can't happen, ascii is always supported
 		}
 		
 		return addressBuf;
@@ -117,10 +112,10 @@ public class Address extends ByteData {
 	}
 
 	public String getAddress(String encoding) {
-		// The address is by default encoded with Data.ENC_GSM7BIT
+		// The address is by default encoded with Data.ENC_ASCII
 		// Create a new string with the given encoding
 		try {
-			byte[] bytes = address.getBytes(Data.ENC_GSM7BIT);
+			byte[] bytes = address.getBytes(Data.ENC_ASCII);
 			String newAddress = new String(bytes, encoding);
 			return newAddress;
 		} catch(UnsupportedEncodingException uee) {
