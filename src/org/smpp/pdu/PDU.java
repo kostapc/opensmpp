@@ -81,16 +81,6 @@ public abstract class PDU extends ByteData {
 	public static final byte VALID_ALL = 3;
 
 	/**
-	 * This vector contains instances of all possible PDUs whic can be
-	 * received and sent. It is used to create new instance of
-	 * class based only on command id.
-	 *
-	 * @see #createPDU(int)
-	 * @see #createPDU(ByteBuffer)
-	 */
-	private static Vector pduList = null;
-
-	/**
 	 * This is counter of sequence numbers. Each time the method
 	 * <code>assignSequenceNumber</code> is called, this counter
 	 * is increased and the it's value is assigned as a sequence number
@@ -817,66 +807,8 @@ public abstract class PDU extends ByteData {
 	 * with given command id.
 	 */
 	public static final PDU createPDU(int commandId) {
-		int size = pduList.size();
-		PDU pdu = null;
-		PDU newInstance = null;
-		for (int i = 0; i < size; i++) {
-			pdu = (PDU) pduList.get(i);
-			if (pdu != null) {
-				if (pdu.getCommandId() == commandId) {
-					try {
-						newInstance = (PDU) (pdu.getClass().newInstance());
-					} catch (IllegalAccessException e) {
-						// can't be illegal access, we initialised
-						// the list with instances of our classes
-					} catch (InstantiationException e) {
-						// can't be instantiation as we already instantiated
-						// at least once, for both exception see help
-						// for Class.newInstance()
-					}
-					return newInstance;
-				}
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Creates a list of instancies of classes which can represent a PDU.
-	 * This list is used in <code>createPDU</code> to create a PDU
-	 * from a binary buffer.
-	 * @see #createPDU(ByteBuffer)
-	 * @see #createPDU(int)
-	 */
-	static {
-		pduList = new Vector(30, 4);
-		pduList.add(new BindTransmitter());
-		pduList.add(new BindTransmitterResp());
-		pduList.add(new BindReceiver());
-		pduList.add(new BindReceiverResp());
-		pduList.add(new BindTransciever());
-		pduList.add(new BindTranscieverResp());
-		pduList.add(new Unbind());
-		pduList.add(new UnbindResp());
-		pduList.add(new Outbind());
-		pduList.add(new SubmitSM());
-		pduList.add(new SubmitSMResp());
-		pduList.add(new SubmitMultiSM());
-		pduList.add(new SubmitMultiSMResp());
-		pduList.add(new DeliverSM());
-		pduList.add(new DeliverSMResp());
-		pduList.add(new DataSM());
-		pduList.add(new DataSMResp());
-		pduList.add(new QuerySM());
-		pduList.add(new QuerySMResp());
-		pduList.add(new CancelSM());
-		pduList.add(new CancelSMResp());
-		pduList.add(new ReplaceSM());
-		pduList.add(new ReplaceSMResp());
-		pduList.add(new EnquireLink());
-		pduList.add(new EnquireLinkResp());
-		pduList.add(new AlertNotification());
-		pduList.add(new GenericNack());
+		// Now routed to PDUFactory to solve deadlock (bug #1029141).
+		return PDUFactory.createPDU(commandId);
 	}
 
 	public String debugString() {
