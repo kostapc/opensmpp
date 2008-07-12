@@ -10,7 +10,7 @@ import org.smpp.pdu.BindTransciever;
  * subclasses of PDU. One thread (X) would get the lock on subclass A, and then
  * on PDU.class (following the constructor hierarchy). Another thread (Y) would
  * seemingly get the lock on its own target subclass (B). Thread X would then
- * try to construct A via static initialisation, causing a deadlock.
+ * try to construct B via static initialisation, causing a deadlock.
  * 
  * Being related to initialisation, this deadlock would likely be experienced by
  * users (if at all) only at JVM startup time, and then only under certain
