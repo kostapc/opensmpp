@@ -1,8 +1,12 @@
 
 The home of this software is:
-http://smstools.sourceforge.net/
+http://smstools.wiki.sourceforge.net/
 
-OpenSMPP is based on the original Logica SMPP libraries. It contains several bug fixes, and has been generally refactored.
+OpenSMPP is based on the original Logica SMPP libraries. It contains
+several bug fixes, and has been generally refactored.
 
-This code is not widely production-tested, and no production release has yet been issued. You should be using the latest  release of the 1.3 branch of the logica-smpp libraries instead for a production environment.
+This code is not widely production-tested, and no production
+release has yet been issued. You should be using the latest
+release of the 1.3 branch of the logica-smpp libraries
+instead, for a production environment.
 
