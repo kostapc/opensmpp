@@ -241,6 +241,8 @@ public abstract class ReceiverBase extends ProcessingThread {
 		try {
 			pdu = PDU.createPDU(unprocBuffer);
 			unprocessed.check();
+			// Reset counter after successful createPDU (as per bug #2138444):
+			messageIncompleteRetryCount = 0;
 		} catch (HeaderIncompleteException e) {
 			// the header wasn't received completly, we will try to
 			// receive the rest next time
@@ -248,7 +250,7 @@ public abstract class ReceiverBase extends ProcessingThread {
 			unprocessed.setHasUnprocessed(false); // as it's incomplete - wait for new data
 			unprocessed.setExpected(Data.PDU_HEADER_SIZE);
 		} catch (MessageIncompleteException e) {
-			if (messageIncompleteRetryCount > 1) { // paolo@bulksms.com
+			if (messageIncompleteRetryCount > 5) { // paolo@bulksms.com
 				messageIncompleteRetryCount = 0;
 				event.write("Giving up on incomplete messages - probably garbage in unprocessed buffer. Flushing unprocessed buffer.");
 				unprocessed.reset();
