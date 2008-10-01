@@ -250,7 +250,10 @@ public abstract class ReceiverBase extends ProcessingThread {
 			unprocessed.setHasUnprocessed(false); // as it's incomplete - wait for new data
 			unprocessed.setExpected(Data.PDU_HEADER_SIZE);
 		} catch (MessageIncompleteException e) {
-			if (messageIncompleteRetryCount > 5) { // paolo@bulksms.com
+			// paolo@bulksms.com - this number (5) is somewhat arbitrary. Too low
+			// a figure could trigger a false positive with fast data rates,
+			// busy servers and PDUs split across TCP packets.
+			if (messageIncompleteRetryCount > 5) {
 				messageIncompleteRetryCount = 0;
 				event.write("Giving up on incomplete messages - probably garbage in unprocessed buffer. Flushing unprocessed buffer.");
 				unprocessed.reset();
