@@ -237,12 +237,11 @@ public class BasicTableParser implements TableParser {
 	 */
 	void getLine() throws IOException {
 		line = "";
-		get();
 		do {
+			get();
 			if (!eol()) {
 				line += c;
 			}
-			get();
 		} while (!eof() && !eol());
 		if (!eof()) {
 			// then it must have been eol => we are trying
