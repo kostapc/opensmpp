@@ -352,19 +352,19 @@ public class ByteBuffer extends SmppObject {
 	}
 
 	public String getHexDump() {
-		String dump = "";
+		StringBuffer dump = new StringBuffer();
 		try {
 			int dataLen = length();
 			byte[] buffer = getBuffer();
-			for (int i = 0; i < dataLen; i++) {
-				dump += Character.forDigit((buffer[i] >> 4) & 0x0f, 16);
-				dump += Character.forDigit(buffer[i] & 0x0f, 16);
+			for (int i=0; i<dataLen; i++) {
+				dump.append(Character.forDigit((buffer[i] >> 4) & 0x0f, 16));
+				dump.append(Character.forDigit(buffer[i] & 0x0f, 16));
 			}
 		} catch (Throwable t) {
 			// catch everything as this is for debug
-			dump = "Throwable caught when dumping = " + t;
+			dump = new StringBuffer("Throwable caught when dumping = ").append(t);
 		}
-		return dump;
+		return dump.toString();
 	}
 }
 /*
