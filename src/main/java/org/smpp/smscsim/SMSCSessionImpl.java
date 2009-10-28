@@ -199,6 +199,9 @@ public class SMSCSessionImpl extends SmppObject implements SMSCSession {
 		this.isReceiving = isReceiving;
 	}
 
+	public Connection getConnection() {
+		return connection;
+	}
 }
 /*
  * $Log: not supported by cvs2svn $

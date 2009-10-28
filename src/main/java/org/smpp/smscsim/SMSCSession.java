@@ -2,6 +2,7 @@ package org.smpp.smscsim;
 
 import java.io.IOException;
 
+import org.smpp.Connection;
 import org.smpp.pdu.PDU;
 import org.smpp.pdu.PDUException;
 
@@ -68,6 +69,8 @@ public interface SMSCSession extends Runnable {
 	 * @param account An object representing the account. It is casted to the correct type by the implementation
 	 */
 	public abstract void setAccount(Object account);
+	
+	public abstract Connection getConnection();
 }
 /*
  * $Log: not supported by cvs2svn $

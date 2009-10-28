@@ -38,6 +38,11 @@ public abstract class Connection extends SmppObject {
 	 */
 	private long receiveTimeout = Data.CONNECTION_RECEIVE_TIMEOUT;
 
+	/**
+	 * The address of the remote end of the connection. 
+	 */
+	protected String address = null;
+
 	protected Connection() {
 	}
 
@@ -141,6 +146,9 @@ public abstract class Connection extends SmppObject {
 		return receiveTimeout;
 	}
 
+	public String getAddress() {
+		return address;
+	}
 }
 
 /*

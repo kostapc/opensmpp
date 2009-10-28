@@ -39,11 +39,6 @@ import javax.net.SocketFactory;
  */
 public class TCPIPConnection extends Connection {
 	/**
-	 * The IP address of the remote end of the <code>socket</code>. 
-	 */
-	private String address = null;
-
-	/**
 	 * The port number on the remote host to which the <code>socket</code>
 	 * is connected or port number where <code>receiverSocket</code>
 	 * is acception connections.
