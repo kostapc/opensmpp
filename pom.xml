@@ -111,6 +111,11 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.6.1</version>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -119,6 +124,13 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<author>true</author>
+					<version>true</version>
+					<use>true</use> 
+					<windowtitle>OpenSMPP</windowtitle>
+				</configuration>
 			</plugin>
 		</plugins>
 	</reporting>

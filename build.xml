@@ -98,7 +98,7 @@
 		<javadoc 
            destdir="${build.dir}/site/apidoc"
            author="true"
-           version="true"
+           version="true" 
            use="true"
 		   classpathref="compile.classpath"
      	   encoding="UTF-8"
