@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.smpp</groupId>
 	<artifactId>OpenSMPP</artifactId>
-	<version>2.2</version>
+	<version>2.3</version>
 	<name>OpenSMPP</name>
 	<packaging>jar</packaging>
 	<description>OpenSmpp - Java library implementing the SMPP

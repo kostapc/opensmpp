@@ -8,7 +8,7 @@
 
 	<property file="${basedir}/build.properties"/>
 	<property name="name" value="OpenSMPP"/>
-	<property name="version" value="2.2"/>
+	<property name="version" value="2.3"/>
 
 	<property name="bin.dir"						value="${basedir}/bin"/>
 	<property name="build.dir"					value="${basedir}/target"/>
