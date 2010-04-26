@@ -181,6 +181,11 @@ public class DeliverSM extends Request {
 		setSmLength((short) shortMessage.getLength());
 	}
 
+	public void setShortMessageData(ByteBuffer buffer) throws PDUException, NotEnoughDataInByteBufferException, TerminatingZeroNotFoundException {
+		setSmLength((short) buffer.length());
+		shortMessage.setData(buffer);
+	}
+
 	public void setSourceAddr(Address value) {
 		sourceAddr = value;
 	}
@@ -239,6 +244,9 @@ public class DeliverSM extends Request {
 	}
 	public String getShortMessage(String encoding) throws UnsupportedEncodingException {
 		return shortMessage.getMessage(encoding);
+	}
+	public ByteBuffer getShortMessageData() {
+		return shortMessage.getData();
 	}
 	public Address getSourceAddr() {
 		return sourceAddr;
