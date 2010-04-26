@@ -127,6 +127,12 @@ public class Receiver extends ReceiverBase {
 	private boolean asynchronous = false;
 
 	/**
+	 * If true then GenericNack messages will be sent automatically if message can't be parsed
+	 * If false then the pdu will be submitted to listener for processing and submission to peer
+	 */
+	private boolean automaticNack = true;
+
+	/**
 	 * This constructor sets the connection to receive the messages from.
 	 *
 	 * @param connection the connection to use for receiving
@@ -136,6 +142,7 @@ public class Receiver extends ReceiverBase {
 		this.connection = connection;
 	}
 
+	
 	/**
 	 * This constructor sets the connection to receive the messages from
 	 * and a transmitter for sending generic negative acknowledges
@@ -360,17 +367,32 @@ public class Receiver extends ReceiverBase {
 			event.write(e, "Receiver.receiveAsync(): received PDU is invalid.");
 			PDU expdu = e.getPDU();
 			int seqNr = expdu == null ? 0 : expdu.getSequenceNumber();
-			sendGenericNack(Data.ESME_RINVMSGLEN, seqNr);
+			if(automaticNack) {
+				sendGenericNack(Data.ESME_RINVMSGLEN, seqNr);
+			} else {
+				pdu = new GenericNack(Data.ESME_RINVMSGLEN, seqNr);
+			}
 		} catch (UnknownCommandIdException e) {
 			// if received unknown pdu, we must send generic nack
 			event.write(e, "Receiver.receiveAsync(): Unknown command id.");
-			sendGenericNack(Data.ESME_RINVCMDID, e.getSequenceNumber());
+			if(automaticNack) {
+				sendGenericNack(Data.ESME_RINVCMDID, e.getSequenceNumber());
+			} else {
+				pdu = new GenericNack(Data.ESME_RINVCMDID, e.getSequenceNumber());
+			}
 		} catch (TimeoutException e) {
 			// too long had unprocessed data
 			debug.write(DRXTX, "Receiver.receiveAsync() too long had an uncomplete message.");
 		} catch (PDUException e) {
 			// something wrong with the PDU
 			event.write(e, "Receiver.receiveAsync()");
+			PDU expdu = e.getPDU();
+			int seqNr = expdu == null ? 0 : expdu.getSequenceNumber();
+			if(automaticNack) {
+				sendGenericNack(e.getErrorCode(), seqNr);
+			} else {
+				pdu = new GenericNack(e.getErrorCode(), seqNr);
+			}
 		} catch (Exception e) {
 			// don't know what happen, let's end the show
 			event.write(e, "Receiver.receiveAsync()");
@@ -476,6 +498,16 @@ public class Receiver extends ReceiverBase {
 	// ProcessingThread's getThreadName override
 	public String getThreadName() {
 		return RECEIVER_THREAD_NAME;
+	}
+
+
+	public void setAutomaticNack(boolean automaticNack) {
+		this.automaticNack = automaticNack;
+	}
+
+
+	public boolean isAutomaticNack() {
+		return automaticNack;
 	}
 
 }
