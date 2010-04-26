@@ -174,10 +174,13 @@ public class Data {
 	public static final int ESME_RINVSMUSER = 0x0000009A; // Short Message User Group Invalid
 	public static final int ESME_RINVRTDB = 0x0000009B; // Real Time Data broadcasts Invalid
 	public static final int ESME_RINVREGDEL = 0x0000009C; // Registered Delivery Invalid
-	public static final int ESME_RINVOPTPARSTREAM = 0x0000009D; // KIF IW Field out of data
-	public static final int ESME_ROPTPARNOTALLWD = 0x0000009E; // Optional Parameter not allowed
+	//public static final int ESME_RINVOPTPARSTREAM = 0x0000009D; // KIF IW Field out of data
+	//public static final int ESME_ROPTPARNOTALLWD = 0x0000009E; // Optional Parameter not allowed
 	public static final int ESME_RINVOPTPARLEN = 0x0000009F; // Invalid Optional Parameter Length
 
+	public static final int ESME_RINVOPTPARSTREAM = 0x000000C0;
+	public static final int ESME_ROPTPARNOTALLWD = 0x000000C1;
+	public static final int ESME_RINVPARLEN = 0x000000C2;
 	public static final int ESME_RMISSINGOPTPARAM = 0x000000C3;
 	public static final int ESME_RINVOPTPARAMVAL = 0x000000C4;
 	public static final int ESME_RDELIVERYFAILURE = 0x000000FE;
