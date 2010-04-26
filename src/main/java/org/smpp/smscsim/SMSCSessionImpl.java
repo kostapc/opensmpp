@@ -154,6 +154,10 @@ public class SMSCSessionImpl extends SmppObject implements SMSCSession {
 		this.pduProcessor = pduProcessor;
 	}
 
+	public void setPDUProcessorFactory(PDUProcessorFactory pduProcessorFactory) {
+		// Ignore, the pdu processor is created by listene
+	}
+
 	/**
 	 * Sets the timeout for receiving the complete message.
 	 * @param timeout the new timeout value

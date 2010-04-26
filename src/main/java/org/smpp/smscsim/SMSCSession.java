@@ -48,6 +48,13 @@ public interface SMSCSession extends Runnable {
 	 */
 	public abstract void setPDUProcessor(PDUProcessor pduProcessor);
 	/**
+	 * Sets PDU processor factory, used instead of setPDUProcessor in case the session creates
+	 * the PDU processor.
+	 * @param pduProcessorFactory the PDU processor factory
+	 * @see #setPDUProcessor()
+	 */
+	public abstract void setPDUProcessorFactory(PDUProcessorFactory pduProcessorFactory);
+	/**
 	 * Sets the timeout for receiving the complete message.
 	 * @param timeout the new timeout value
 	 */
