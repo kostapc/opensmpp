@@ -142,17 +142,32 @@ public class SubmitMultiSM extends Request {
 	}
 
 	public void setServiceType(String value) throws WrongLengthOfStringException {
-		checkCString(value, Data.SM_SRVTYPE_LEN);
+		try {
+			checkCString(value, Data.SM_SRVTYPE_LEN);
+		} catch (WrongLengthOfStringException e) {
+			e.setErrorCode(Data.ESME_RINVSERTYP);
+			throw e;
+		}
 		serviceType = value;
 	}
 
 	public void setScheduleDeliveryTime(String value) throws WrongDateFormatException {
-		checkDate(value);
+		try {
+			checkDate(value);
+		} catch (WrongDateFormatException e) {
+			e.setErrorCode(Data.ESME_RINVSCHED);
+			throw e;
+		}
 		scheduleDeliveryTime = value;
 	}
 
 	public void setValidityPeriod(String value) throws WrongDateFormatException {
-		checkDate(value);
+		try {
+			checkDate(value);
+		} catch (WrongDateFormatException e) {
+			e.setErrorCode(Data.ESME_RINVEXPIRY);
+			throw e;
+		}
 		validityPeriod = value;
 	}
 

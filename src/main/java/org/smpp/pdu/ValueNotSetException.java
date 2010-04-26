@@ -10,6 +10,8 @@
  */
 package org.smpp.pdu;
 
+import org.smpp.Data;
+
 /**
  * optional's parameter's value was requested but the optional parameter
  * wasn't present in the PDU
@@ -19,6 +21,10 @@ package org.smpp.pdu;
  */
 public class ValueNotSetException extends PDUException {
 	private static final long serialVersionUID = -4595064103809398438L;
+
+	public ValueNotSetException() {
+		setErrorCode(Data.ESME_RMISSINGOPTPARAM);
+	}
 }
 /*
  * $Log: not supported by cvs2svn $

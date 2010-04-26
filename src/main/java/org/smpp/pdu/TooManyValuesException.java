@@ -10,13 +10,16 @@
  */
 package org.smpp.pdu;
 
+import org.smpp.Data;
+
 /**
  * @author Logica Mobile Networks SMPP Open Source Team
  * @version $Revision: 1.1 $
  */
 public class TooManyValuesException extends PDUException {
 	private static final long serialVersionUID = -2777016699062489252L;
+
+	public TooManyValuesException() {
+		setErrorCode(Data.ESME_RINVPARAM);
+	}
 }
-/*
- * $Log: not supported by cvs2svn $
- */

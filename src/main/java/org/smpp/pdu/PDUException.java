@@ -10,6 +10,7 @@
  */
 package org.smpp.pdu;
 
+import org.smpp.Data;
 import org.smpp.SmppException;
 
 /**
@@ -21,7 +22,8 @@ import org.smpp.SmppException;
 public class PDUException extends SmppException {
 	private static final long serialVersionUID = 5174606627714918071L;
 	private transient PDU pdu = null;
-
+	private transient int errorCode = Data.ESME_RUNKNOWNERR;
+	
 	public PDUException() {
 	}
 
@@ -64,6 +66,13 @@ public class PDUException extends SmppException {
 	}
 	public boolean hasPDU() {
 		return pdu != null;
+	}
+
+	public void setErrorCode(int errorCode) {
+		this.errorCode = errorCode;
+	}
+	public int getErrorCode() {
+		return errorCode;
 	}
 }
 /*

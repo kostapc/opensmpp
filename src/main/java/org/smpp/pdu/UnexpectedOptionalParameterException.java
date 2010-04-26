@@ -10,6 +10,8 @@
  */
 package org.smpp.pdu;
 
+import org.smpp.Data;
+
 /**
  * @author Logica Mobile Networks SMPP Open Source Team
  * @version $Revision: 1.1 $
@@ -20,11 +22,13 @@ public class UnexpectedOptionalParameterException extends PDUException {
 
 	public UnexpectedOptionalParameterException() {
 		super("The optional parameter wasn't expected for the PDU.");
+		setErrorCode(Data.ESME_ROPTPARNOTALLWD);
 	}
 
 	public UnexpectedOptionalParameterException(short tag) {
 		super("The optional parameter wasn't expected for the PDU:" + " tag=" + tag + ".");
 		this.tag = tag;
+		setErrorCode(Data.ESME_ROPTPARNOTALLWD);
 	}
 
 	public void setTag(int tag) {
@@ -35,6 +39,3 @@ public class UnexpectedOptionalParameterException extends PDUException {
 		return tag;
 	}
 }
-/*
- * $Log: not supported by cvs2svn $
- */
