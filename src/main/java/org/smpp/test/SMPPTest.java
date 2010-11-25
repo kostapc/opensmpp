@@ -14,7 +14,6 @@ import java.io.*;
 import java.util.Properties;
 
 import org.smpp.*;
-import org.smpp.TCPIPConnection;
 import org.smpp.pdu.*;
 import org.smpp.debug.Debug;
 import org.smpp.debug.Event;
@@ -854,6 +853,7 @@ public class SMPPTest {
 	 * @see SmppObject
 	 */
 	private class SMPPTestPDUEventListener extends SmppObject implements ServerPDUEventListener {
+		@SuppressWarnings("unused")
 		Session session;
 		Queue requestEvents = new Queue();
 
