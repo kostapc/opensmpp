@@ -10,7 +10,7 @@
 	<property name="name" value="OpenSMPP"/>
 	<property name="version" value="2.3"/>
 
-	<property name="bin.dir"						value="${basedir}/bin"/>
+	<property name="bin.dir"						value="/client/bin"/>
 	<property name="build.dir"					value="${basedir}/target"/>
 	<property name="build.classes.dir"		value="${build.dir}/classes"/>
 	<property name="dist.dir"						value="${basedir}/target"/>
@@ -82,7 +82,7 @@
 				<include name="smpp.jar" />
 			</fileset>
 			<fileset dir="${etc.dir}"  includes="smppsender.cfg" />
-			<fileset dir="${bin.dir}"  includes="**" />
+			<fileset dir="/client/bin" includes="**" />
 		</zip>
 		<zip destfile="${dist.dir}/doc.zip" >
 			<fileset dir="${build.dir}/site/apidoc" >
