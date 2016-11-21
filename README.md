@@ -1,5 +1,7 @@
 # OpenSmpp
 
+This fork contains some history from SourceForge SVN repository
+
 Java library implementing the SMPP protocol, and allowing development of
 External Short Message Entities (ESMEs) and more
 
