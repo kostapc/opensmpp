@@ -12,15 +12,15 @@ package org.smpp;
 
 import java.io.IOException;
 
-import org.smpp.pdu.PDU;
 import org.smpp.pdu.HeaderIncompleteException;
 import org.smpp.pdu.MessageIncompleteException;
+import org.smpp.pdu.PDU;
 import org.smpp.pdu.PDUException;
 import org.smpp.pdu.UnknownCommandIdException;
 import org.smpp.util.ByteBuffer;
+import org.smpp.util.NotEnoughDataInByteBufferException;
 import org.smpp.util.ProcessingThread;
 import org.smpp.util.Unprocessed;
-import org.smpp.util.NotEnoughDataInByteBufferException;
 
 /**
  * Abstract base class for classes which can receive PDUs from connection.

@@ -12,6 +12,7 @@ package org.smpp.smscsim;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
+
 import org.smpp.pdu.SubmitSM;
 import org.smpp.smscsim.ShortMessageValue;
 

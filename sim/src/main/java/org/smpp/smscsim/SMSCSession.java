@@ -13,7 +13,7 @@ import org.smpp.pdu.PDUException;
  * 
  * @author Sverker Abrahamsson
  *
- * @version $Id$
+ * @version $Id: SMSCSession.java 85 2010-04-26 13:39:31Z sverkera $
  *
  */
 public interface SMSCSession extends Runnable {

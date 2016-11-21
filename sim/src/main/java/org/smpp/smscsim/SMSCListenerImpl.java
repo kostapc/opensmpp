@@ -13,8 +13,8 @@ package org.smpp.smscsim;
 import java.io.InterruptedIOException;
 import java.io.IOException;
 
-import org.smpp.SmppObject;
 import org.smpp.Connection;
+import org.smpp.SmppObject;
 
 /**
  * This class accepts client connection on given port. When the connection

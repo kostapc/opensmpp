@@ -11,10 +11,10 @@
 package org.smpp.pdu.tlv;
 
 import org.smpp.pdu.ByteData;
-import org.smpp.util.ByteBuffer;
-import org.smpp.util.NotEnoughDataInByteBufferException;
 import org.smpp.pdu.ValueNotSetException;
 import org.smpp.pdu.tlv.WrongLengthException;
+import org.smpp.util.ByteBuffer;
+import org.smpp.util.NotEnoughDataInByteBufferException;
 
 /**
  * Base class for classes implementing representations of optional parameters

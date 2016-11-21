@@ -12,9 +12,9 @@ package org.smpp.pdu.tlv;
 
 import java.lang.Error;
 
+import org.smpp.pdu.ValueNotSetException;
 import org.smpp.util.ByteBuffer;
 import org.smpp.util.NotEnoughDataInByteBufferException;
-import org.smpp.pdu.ValueNotSetException;
 
 /**
  * @author Logica Mobile Networks SMPP Open Source Team

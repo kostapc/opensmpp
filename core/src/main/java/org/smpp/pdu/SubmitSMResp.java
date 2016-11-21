@@ -11,12 +11,12 @@
 package org.smpp.pdu;
 
 import org.smpp.Data;
-import org.smpp.util.*;
 import org.smpp.pdu.Response;
+import org.smpp.util.*;
 
 /**
  * @author Logica Mobile Networks SMPP Open Source Team
- * @version $Id$
+ * @version $Id: SubmitSMResp.java 72 2008-07-15 19:43:00Z sverkera $
  */
 public class SubmitSMResp extends Response {
 

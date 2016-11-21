@@ -30,7 +30,7 @@ import javax.net.SocketFactory;
  * from clients accepting and creating) type of connections.
  * 
  * @author Logica Mobile Networks SMPP Open Source Team
- * @version $Id$
+ * @version $Id: TCPIPConnection.java 80 2009-10-28 02:13:18Z sverkera $
  * @see Connection
  * @see java.net.Socket
  * @see java.net.ServerSocket

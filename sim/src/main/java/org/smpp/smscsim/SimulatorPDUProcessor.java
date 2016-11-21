@@ -11,8 +11,8 @@
 package org.smpp.smscsim;
 
 import java.io.IOException;
+
 import org.smpp.*;
-import org.smpp.SmppObject;
 import org.smpp.debug.Debug;
 import org.smpp.debug.Event;
 import org.smpp.debug.FileLog;

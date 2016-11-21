@@ -13,10 +13,10 @@ package org.smpp.smscsim;
 import java.io.IOException;
 
 import org.smpp.Connection;
-import org.smpp.Receiver;
-import org.smpp.Transmitter;
-import org.smpp.SmppObject;
 import org.smpp.Data;
+import org.smpp.Receiver;
+import org.smpp.SmppObject;
+import org.smpp.Transmitter;
 import org.smpp.pdu.*;
 
 /**

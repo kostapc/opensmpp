@@ -13,8 +13,8 @@ package org.smpp;
 import java.io.IOException;
 import java.util.Hashtable;
 
-import org.smpp.util.*;
 import org.smpp.pdu.*;
+import org.smpp.util.*;
 
 /**
  * Class <code>Session</code> provides all methods necessary for communication

@@ -17,7 +17,7 @@ package org.smpp;
  * provides single class for <code>catch</code> clause.
  * 
  * @author Logica Mobile Networks SMPP Open Source Team
- * @version $Id$
+ * @version $Id: SmppException.java 72 2008-07-15 19:43:00Z sverkera $
  */
 
 public class SmppException extends Exception {

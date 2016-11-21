@@ -11,9 +11,10 @@
 package org.smpp.smscsim;
 
 import java.io.IOException;
+
+import org.smpp.pdu.PDUException;
 import org.smpp.pdu.Request;
 import org.smpp.pdu.Response;
-import org.smpp.pdu.PDUException;
 
 /**
  * <code>PDUProcessor</code> is abstract class which defines interface

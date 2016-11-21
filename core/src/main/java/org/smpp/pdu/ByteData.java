@@ -29,7 +29,7 @@ import org.smpp.util.*;
  * within valid boundary, if the date format is valid etc.
  *
  * @author Logica Mobile Networks SMPP Open Source Team
- * @version $Id$
+ * @version $Id: ByteData.java 72 2008-07-15 19:43:00Z sverkera $
  * @see #setData(ByteBuffer)
  * @see #getData()
  */

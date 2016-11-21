@@ -13,8 +13,8 @@ package org.smpp;
 import java.io.IOException;
 
 import org.smpp.pdu.GenericNack;
-import org.smpp.pdu.PDU;
 import org.smpp.pdu.InvalidPDUException;
+import org.smpp.pdu.PDU;
 import org.smpp.pdu.PDUException;
 import org.smpp.pdu.UnknownCommandIdException;
 import org.smpp.util.Queue;

@@ -14,11 +14,11 @@ import java.io.*;
 import java.util.Properties;
 
 import org.smpp.*;
-import org.smpp.pdu.*;
 import org.smpp.debug.Debug;
 import org.smpp.debug.Event;
 import org.smpp.debug.FileDebug;
 import org.smpp.debug.FileEvent;
+import org.smpp.pdu.*;
 import org.smpp.util.Queue;
 
 /**
@@ -61,7 +61,7 @@ public class SMPPTest {
 	/**
 	 * File with default settings for the application.
 	 */
-	static String propsFilePath = "./etc/smpptest.cfg";
+	static String propsFilePath = "./smpptest.cfg";
 
 	static BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 

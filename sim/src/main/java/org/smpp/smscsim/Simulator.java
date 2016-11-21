@@ -12,8 +12,8 @@ package org.smpp.smscsim;
 
 import java.io.*;
 
-import org.smpp.debug.*;
 import org.smpp.SmppObject;
+import org.smpp.debug.*;
 import org.smpp.pdu.DeliverSM;
 import org.smpp.pdu.PDUException;
 import org.smpp.pdu.WrongLengthOfStringException;
@@ -44,7 +44,7 @@ import org.smpp.smscsim.util.Table;
  * directory name in the <code>-cp</code> argument.
  * 
  * @author Logica Mobile Networks SMPP Open Source Team
- * @version $Id$
+ * @version $Id: Simulator.java 72 2008-07-15 19:43:00Z sverkera $
  * @see SimulatorPDUProcessor
  * @see SimulatorPDUProcessorFactory
  * @see SMSCListener

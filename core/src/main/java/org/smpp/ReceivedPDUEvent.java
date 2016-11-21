@@ -11,6 +11,7 @@
 package org.smpp;
 
 import java.util.EventObject;
+
 import org.smpp.pdu.PDU;
 
 /**

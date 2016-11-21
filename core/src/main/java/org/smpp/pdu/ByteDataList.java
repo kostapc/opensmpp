@@ -11,6 +11,7 @@
 package org.smpp.pdu;
 
 import java.util.Vector;
+
 import org.smpp.util.*;
 
 /**

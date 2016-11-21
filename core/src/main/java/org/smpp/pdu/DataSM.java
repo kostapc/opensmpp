@@ -11,10 +11,10 @@
 package org.smpp.pdu;
 
 import org.smpp.Data;
-import org.smpp.util.*;
 import org.smpp.pdu.Request;
 import org.smpp.pdu.ValueNotSetException;
 import org.smpp.pdu.tlv.*;
+import org.smpp.util.*;
 
 /**
  * @author Logica Mobile Networks SMPP Open Source Team

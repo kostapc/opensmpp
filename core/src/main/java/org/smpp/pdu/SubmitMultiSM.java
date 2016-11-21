@@ -13,9 +13,9 @@ package org.smpp.pdu;
 import java.io.UnsupportedEncodingException;
 
 import org.smpp.Data;
-import org.smpp.util.*;
 import org.smpp.pdu.Request;
 import org.smpp.pdu.tlv.*;
+import org.smpp.util.*;
 
 /**
  * @author Logica Mobile Networks SMPP Open Source Team

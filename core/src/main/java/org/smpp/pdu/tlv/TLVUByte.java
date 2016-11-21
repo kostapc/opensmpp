@@ -10,10 +10,10 @@
  */
 package org.smpp.pdu.tlv;
 
-import org.smpp.util.ByteBuffer;
-import org.smpp.util.NotEnoughDataInByteBufferException;
 import org.smpp.pdu.IntegerOutOfRangeException;
 import org.smpp.pdu.ValueNotSetException;
+import org.smpp.util.ByteBuffer;
+import org.smpp.util.NotEnoughDataInByteBufferException;
 
 /**
  * TLV carrying unsigned byte (octet).

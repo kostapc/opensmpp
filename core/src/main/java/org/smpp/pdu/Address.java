@@ -17,7 +17,7 @@ import org.smpp.util.*;
 
 /**
  * @author Logica Mobile Networks SMPP Open Source Team
- * @version $Id$
+ * @version $Id: Address.java 72 2008-07-15 19:43:00Z sverkera $
  */
 public class Address extends ByteData {
 	private byte ton = Data.DFLT_GSM_TON;

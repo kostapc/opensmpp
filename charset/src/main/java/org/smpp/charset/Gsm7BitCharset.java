@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  * See GSM 03.38
  * 
  * @author Sverker Abrahamsson
- * @version $Id$
+ * @version $Id: Gsm7BitCharset.java 90 2011-04-19 22:07:52Z sverkera $
  */
 public class Gsm7BitCharset extends Charset {
 

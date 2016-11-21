@@ -1,67 +1,14 @@
 <?xml version="1.0"?>
-<!-- $Id: pom.xml 88 2010-04-26 14:01:31Z sverkera $ -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
-	<!--  TODO: restructure the project to multiple modules -->
-	<!-- parent>
-		<groupId>org.smpp</groupId>
-		<artifactId>OpenSMPP</artifactId>
-		<version>2.3</version>
-	</parent-->
-	<groupId>org.smpp.charset</groupId>
-	<artifactId>Gsm7BitCharset</artifactId>
-	<version>2.3</version>
-	<name>Gsm7BitCharset</name>
+	<parent>
+		<groupId>org.opensmpp</groupId>
+		<artifactId>opensmpp-parent</artifactId>
+		<version>3.0.2-SNAPSHOT</version>
+	</parent>	
+	<artifactId>opensmpp-charset</artifactId>
 	<packaging>jar</packaging>
-	<description>library for handling gsm 7bit charset</description>
-	<url>http://smstools.sourceforge.net</url>
+	<name>OpenSMPP Character Sets</name>
 
-	<build>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<configuration>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.6.1</version>
-			</plugin>
-		</plugins>
-	</build>
-
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					<author>true</author>
-					<version>true</version>
-					<use>true</use> 
-					<windowtitle>OpenSMPP</windowtitle>
-				</configuration>
-			</plugin>
-		</plugins>
-	</reporting>
 </project>

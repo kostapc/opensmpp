@@ -23,7 +23,7 @@ import org.smpp.util.ByteBuffer;
  * classes use this class for sending and receiving data to and from SMSC.
  * 
  * @author Logica Mobile Networks SMPP Open Source Team
- * @version $Id$
+ * @version $Id: Connection.java 80 2009-10-28 02:13:18Z sverkera $
  * @see TCPIPConnection
  */
 public abstract class Connection extends SmppObject {
